@@ -1,10 +1,15 @@
 package com.google.gwt.stockwatcher.client.ui.desktop;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.place.shared.Place;
+import com.google.gwt.stockwatcher.client.ClientFactory;
+import com.google.gwt.stockwatcher.client.event.BuyStockEvent;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -22,14 +27,30 @@ public class StockWatcherViewImpl extends Composite implements StockWatcherView{
     }
     private static StockWatcherViewImplUiBinder stockWatcherViewImplUiBinder = GWT.create(StockWatcherViewImplUiBinder.class);
 
+    private ClientFactory clientFactory;
+
     public StockWatcherViewImpl() {
         VerticalPanel stockWatcherVerticalPanel = stockWatcherViewImplUiBinder.createAndBindUi(this);
         initWidget(stockWatcherVerticalPanel);
     }
 
     @Override
+    public void setClientFactory(ClientFactory clientFactory) {
+        this.clientFactory = clientFactory;
+    }
+
+    @Override
     public void addStock(String code) {
         //To change body of implemented methods use File | Settings | File Templates.
+
+        Button buyButton = new Button("Buy");
+        buyButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+//                ClientFactory.fireEvent(new BuyStockEvent(null));
+//                eventBus.fireEvent(new BuyStockEvent(null));
+            }
+        });
     }
 
     @Override

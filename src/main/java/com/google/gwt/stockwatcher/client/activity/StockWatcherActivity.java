@@ -20,7 +20,7 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
-        final StockWatcherView stockWatcherView = getClientFactory().getStockWatcherView();
+        final StockWatcherView stockWatcherView = getClientFactory().getView(StockWatcherView.class);
 
         //设置所有的事件，只有需要View和Activity交互的时候才设置 Event, 页面能自处理的页面事件，再View上自行完成
         getClientFactory().getEventBus().addHandler(BuyStockEvent.TYPE, new BuyStockEventHandler() {
