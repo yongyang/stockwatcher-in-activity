@@ -1,0 +1,48 @@
+package com.google.gwt.stockwatcher.client.ui.desktop;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.place.shared.Place;
+import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.VerticalPanel;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: Administrator
+ * Date: 12-11-30
+ * Time: 下午11:23
+ * To change this template use File | Settings | File Templates.
+ */
+public class StockWatcherViewImpl extends Composite implements StockWatcherView{
+
+    @UiTemplate("StockWatcherViewImpl.ui.xml")
+    interface StockWatcherViewImplUiBinder extends UiBinder<VerticalPanel, StockWatcherViewImpl> {
+    }
+    private static StockWatcherViewImplUiBinder stockWatcherViewImplUiBinder = GWT.create(StockWatcherViewImplUiBinder.class);
+
+    public StockWatcherViewImpl() {
+        VerticalPanel stockWatcherVerticalPanel = stockWatcherViewImplUiBinder.createAndBindUi(this);
+        initWidget(stockWatcherVerticalPanel);
+    }
+
+    @Override
+    public void addStock(String code) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void removeStock(String code) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void addBoughtSocket() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public void toPlace(Place place) {
+
+    }
+}

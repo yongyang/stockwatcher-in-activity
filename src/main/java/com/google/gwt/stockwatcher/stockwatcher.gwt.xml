@@ -1,0 +1,24 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to="stockwatcher">
+
+    <!-- Inherit the core Web Toolkit stuff.                  -->
+    <inherits name='com.google.gwt.user.User'/>
+
+    <!-- Activity&Place module inherits                                      -->
+    <inherits name="com.google.gwt.activity.Activity"/>
+    <inherits name="com.google.gwt.place.Place"/>
+
+    <!-- Specify the app entry point class.                   -->
+    <entry-point class='com.google.gwt.stockwatcher.client.StockWatcher'/>
+
+
+    <!-- Use DesktopClientFactoryImpl by default -->
+    <replace-with class="com.google.gwt.stockwatcher.client.DesktopClientFactoryImpl">
+        <when-type-is class="com.google.gwt.stockwatcher.client.ClientFactory"/>
+    </replace-with>
+
+    <!-- Specify the app servlets.                   -->
+    <servlet path='/StockWatcherService' class='com.google.gwt.stockwatcher.server.StockWatcherServiceImpl'/>
+
+</module>
