@@ -6,17 +6,9 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
-import com.google.gwt.stockwatcher.client.ui.BuyStockView;
-import com.google.gwt.stockwatcher.client.ui.ClientAwareView;
-import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
-import com.google.gwt.stockwatcher.client.ui.desktop.StockWatcherViewImpl;
 import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.UIObject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.

@@ -5,7 +5,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.ClientFactory;
-import com.google.gwt.stockwatcher.client.event.BuyStockEvent;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiTemplate;
@@ -20,7 +19,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  * Time: 下午11:23
  * To change this template use File | Settings | File Templates.
  */
-public class StockWatcherViewImpl extends Composite implements StockWatcherView{
+class StockWatcherViewImpl extends Composite implements StockWatcherView{
 
     @UiTemplate("StockWatcherViewImpl.ui.xml")
     interface StockWatcherViewImplUiBinder extends UiBinder<VerticalPanel, StockWatcherViewImpl> {

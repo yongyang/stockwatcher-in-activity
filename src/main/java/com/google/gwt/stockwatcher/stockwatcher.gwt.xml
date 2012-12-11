@@ -14,7 +14,7 @@
 
 
     <!-- Use DesktopClientFactoryImpl by default -->
-    <replace-with class="com.google.gwt.stockwatcher.client.DesktopClientFactoryImpl">
+    <replace-with class="com.google.gwt.stockwatcher.client.ui.desktop.DesktopClientFactoryImpl">
         <when-type-is class="com.google.gwt.stockwatcher.client.ClientFactory"/>
     </replace-with>
 
