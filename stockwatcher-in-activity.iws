@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ClientFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ClientFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/desktop/DesktopClientFactoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/desktop/DesktopClientFactoryImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/activity/StockWatcherActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/activity/StockWatcherActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/StockWatcherView.java" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/StockWatcherView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/desktop/StockWatcherViewImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/desktop/StockWatcherViewImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stockwatcher-in-activity.iml" afterPath="$PROJECT_DIR$/stockwatcher-in-activity.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stockwatcher-in-activity.ipr" afterPath="$PROJECT_DIR$/stockwatcher-in-activity.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stockwatcher-in-activity.iws" afterPath="$PROJECT_DIR$/stockwatcher-in-activity.iws" />
-      <change type="MOVED" beforePath="D:\workspace\stockwatcher-in-activity\src\main\java\com\google\gwt\stockwatcher\client\ui\ClientAwareView.java" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/ClientAware.java" />
     </list>
     <ignored path="stockwatcher-in-activity.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +14,7 @@
     <file path="/fragment.java" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355156680892" ignored="false" />
     <file path="/sotckwatcher.html" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355157785403" ignored="false" />
     <file path="$PROJECT_DIR$/web/x.html" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355157201897" ignored="false" />
-    <file path="/Dummy.txt" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355983143016" ignored="false" />
+    <file path="/Dummy.txt" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355985295240" ignored="false" />
     <file path="/StockWatcher.java" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355160014643" ignored="false" />
     <file path="/StockWatcherViewImpl.java" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355984902270" ignored="false" />
     <file path="/PlaceActivity.java" changelist="c7b7a9a4-641f-48d4-97f0-ad11a85e3c27" time="1355160378975" ignored="false" />
@@ -91,7 +85,9 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ClientFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +133,10 @@
       <file leaf-file-name="StockWatcherViewImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/desktop/StockWatcherViewImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="5" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="76" column="5" selection-start="2634" selection-end="2634" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -690,7 +688,11 @@
       <created>1355191041119</created>
       <updated>1355191041119</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Multi Display support">
+      <created>1355985307294</created>
+      <updated>1355985307294</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -763,7 +765,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move DesktopClientFactory to ui/desktop package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multi Display support" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -780,6 +782,7 @@
     <MESSAGE value="minor fix" />
     <MESSAGE value="Redesign ClientFactory and View" />
     <MESSAGE value="Move DesktopClientFactory to ui/desktop package" />
+    <MESSAGE value="Multi Display support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -885,14 +888,18 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ClientFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/client/ui/desktop/StockWatcherViewImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="5" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="76" column="5" selection-start="2634" selection-end="2634" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
