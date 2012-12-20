@@ -17,10 +17,12 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
  * Time: 下午3:57
  * To change this template use File | Settings | File Templates.
  */
-public abstract class ClientFactory implements ActivityMapper {
+public abstract class ClientFactory {
     private final EventBus eventBus = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eventBus);
 
+    private final ActivityMapper mainActivityMapper = new MainActivityMapper();
+    private final ActivityMapper statusActivityMapper = new StatusActivityMapper();
     public EventBus getEventBus() {
         return eventBus;
     }
@@ -29,15 +31,39 @@ public abstract class ClientFactory implements ActivityMapper {
         return placeController;
     }
 
-    @Override
-    public Activity getActivity(Place place) {
-        if(place instanceof StockWatcherPlace) {
-            return new StockWatcherActivity(this, (StockWatcherPlace)place);
-        }
-        else {
-            return null;
+    /**
+     * Get View object by Class. Different impl(Desktop/Mobile) can return different View.
+     * @param viewClass
+     * @param <T>
+     * @return
+     */
+    public abstract <T extends IsWidget> T getView(Class<T> viewClass);
+
+    public ActivityMapper getMainActivityMapper() {
+        return mainActivityMapper;
+    }
+
+    public ActivityMapper getStatusActivityMapper() {
+        return statusActivityMapper;
+    }
+
+    protected class MainActivityMapper implements ActivityMapper {
+
+        public Activity getActivity(Place place) {
+            if(place instanceof StockWatcherPlace) {
+                return new StockWatcherActivity(ClientFactory.this, (StockWatcherPlace)place);
+            }
+            else {
+                return null;
+            }
+
         }
     }
 
-    public abstract <T extends IsWidget> T getView(Class<T> viewClass);
+    protected class StatusActivityMapper implements ActivityMapper {
+
+        public Activity getActivity(Place place) {
+            return null;
+        }
+    }
 }

@@ -9,7 +9,7 @@ import com.google.gwt.stockwatcher.client.ClientFactory;
  * Time: 上午2:13
  * To change this template use File | Settings | File Templates.
  */
-public interface ClientAwareView {
+public interface ClientAware {
 
     void setClientFactory(ClientFactory clientFactory);
 }

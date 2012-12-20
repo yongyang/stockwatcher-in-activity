@@ -7,9 +7,12 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
@@ -27,6 +30,9 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     private static StockWatcherViewImplUiBinder stockWatcherViewImplUiBinder = GWT.create(StockWatcherViewImplUiBinder.class);
 
     private ClientFactory clientFactory;
+
+    @UiField
+    SimplePanel statusPanel;
 
     public StockWatcherViewImpl() {
         VerticalPanel stockWatcherVerticalPanel = stockWatcherViewImplUiBinder.createAndBindUi(this);
@@ -52,17 +58,21 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         });
     }
 
+    public AcceptsOneWidget getStatusPanel() {
+        return statusPanel;
+    }
+
     @Override
     public void removeStock(String code) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public void addBoughtSocket() {
+    public void addBoughtStock() {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public void toPlace(Place place) {
-
+        clientFactory.getPlaceController().goTo(place);
     }
 }

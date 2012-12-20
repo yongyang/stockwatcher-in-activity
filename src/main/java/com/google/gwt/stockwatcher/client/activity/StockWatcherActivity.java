@@ -1,5 +1,6 @@
 package com.google.gwt.stockwatcher.client.activity;
 
+import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.event.BuyStockEvent;
@@ -34,6 +35,11 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
         // init views
         //stockWatcherView.addStock(new Stock());
         panel.setWidget(stockWatcherView.asWidget());
+
+        //TODO: Multi Displays, Create other ActivityManager for other Display Area
+        ActivityManager statusActiveManager = new ActivityManager(getClientFactory().getStatusActivityMapper(), eventBus);
+        statusActiveManager.setDisplay(stockWatcherView.getStatusPanel());
+
     }
 
 }

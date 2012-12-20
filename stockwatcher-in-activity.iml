@@ -13,7 +13,7 @@
     </facet>
     <facet type="gwt" name="GWT">
       <configuration>
-        <setting name="compilerMaxHeapSize" value="512" />
+        <setting name="compilerMaxHeapSize" value="1024" />
         <setting name="gwtScriptOutputStyle" value="DETAILED" />
         <setting name="gwtSdkUrl" value="file://E:/Java/GWT/gwt-2.5.0" />
         <setting name="webFacet" value="Web" />
