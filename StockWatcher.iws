@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="34638fea-9a80-4ffd-847a-3de879073f5c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StockWatcher.iws" afterPath="$PROJECT_DIR$/StockWatcher.iws" />
-      <change type="MOVED" beforePath="D:\workspace\stockwatcher-in-activity\src\main\java\com\google\gwt\stockwatcher\stockwatcher.gwt.xml" afterPath="$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/StockWatcher.gwt.xml" />
     </list>
     <ignored path="StockWatcher.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="34638fea-9a80-4ffd-847a-3de879073f5c" time="1356415672094" ignored="false" />
+    <file path="/Dummy.txt" changelist="34638fea-9a80-4ffd-847a-3de879073f5c" time="1356415845885" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
       <file leaf-file-name="StockWatcher.gwt.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/StockWatcher.gwt.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="64" selection-start="582" selection-end="582" vertical-scroll-proportion="0.29395217">
+            <state line="22" column="4" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.58790433">
               <folding />
             </state>
           </provider>
@@ -547,7 +546,11 @@
       <created>1356415679651</created>
       <updated>1356415679651</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Mavenize">
+      <created>1356415851784</created>
+      <updated>1356415851784</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -749,7 +752,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/StockWatcher.gwt.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="64" selection-start="582" selection-end="582" vertical-scroll-proportion="0.29395217">
+        <state line="22" column="4" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.58790433">
           <folding />
         </state>
       </provider>
