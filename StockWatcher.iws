@@ -6,7 +6,7 @@
     </list>
     <ignored path="StockWatcher.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="34638fea-9a80-4ffd-847a-3de879073f5c" time="1356415845885" ignored="false" />
+    <file path="/Dummy.txt" changelist="34638fea-9a80-4ffd-847a-3de879073f5c" time="1356415881293" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +86,7 @@
       <file leaf-file-name="StockWatcher.gwt.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/StockWatcher.gwt.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="4" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.58790433">
+            <state line="23" column="9" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.6146273">
               <folding />
             </state>
           </provider>
@@ -550,7 +550,11 @@
       <created>1356415851784</created>
       <updated>1356415851784</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Mavenize">
+      <created>1356415883319</created>
+      <updated>1356415883319</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -752,7 +756,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/google/gwt/stockwatcher/StockWatcher.gwt.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="4" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.58790433">
+        <state line="23" column="9" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.6146273">
           <folding />
         </state>
       </provider>
