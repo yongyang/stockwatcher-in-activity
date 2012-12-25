@@ -20,4 +20,5 @@
 
     <!-- Specify the app servlets.                   -->
     <servlet path='/StockWatcherService' class='com.google.gwt.stockwatcher.server.StockWatcherServiceImpl'/>
+
 </module>
