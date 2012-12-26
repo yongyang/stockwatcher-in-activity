@@ -42,7 +42,7 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
 
     @Override
     public String mayStop() {
-        // setDisplay null, will remove handlers from eventBus
+        //IMPORTANT!!! setDisplay null to remove handlers from eventBus
         getClientFactory().getStatusActivityManager().setDisplay(null);
         return super.mayStop();
     }
