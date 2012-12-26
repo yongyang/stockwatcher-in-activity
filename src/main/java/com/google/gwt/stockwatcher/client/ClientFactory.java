@@ -1,6 +1,7 @@
 package com.google.gwt.stockwatcher.client;
 
 import com.google.gwt.activity.shared.Activity;
+import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
@@ -21,8 +22,9 @@ public abstract class ClientFactory {
     private final EventBus eventBus = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eventBus);
 
-    private final ActivityMapper mainActivityMapper = new MainActivityMapper();
-    private final ActivityMapper statusActivityMapper = new StatusActivityMapper();
+    private final ActivityManager mainActivityManager = new ActivityManager(new MainActivityMapper(), eventBus);
+    private final ActivityManager statusActivityManager = new ActivityManager(new StatusActivityMapper(), eventBus);
+
     public EventBus getEventBus() {
         return eventBus;
     }
@@ -39,12 +41,12 @@ public abstract class ClientFactory {
      */
     public abstract <T extends IsWidget> T getView(Class<T> viewClass);
 
-    public ActivityMapper getMainActivityMapper() {
-        return mainActivityMapper;
+    public ActivityManager getMainActivityManager() {
+        return mainActivityManager;
     }
 
-    public ActivityMapper getStatusActivityMapper() {
-        return statusActivityMapper;
+    public ActivityManager getStatusActivityManager() {
+        return statusActivityManager;
     }
 
     protected class MainActivityMapper implements ActivityMapper {

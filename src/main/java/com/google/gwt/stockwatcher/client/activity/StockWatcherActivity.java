@@ -37,9 +37,13 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
         panel.setWidget(stockWatcherView.asWidget());
 
         //TODO: Multi Displays, Create other ActivityManager for other Display Area
-        ActivityManager statusActiveManager = new ActivityManager(getClientFactory().getStatusActivityMapper(), eventBus);
-        statusActiveManager.setDisplay(stockWatcherView.getStatusPanel());
-
+        getClientFactory().getStatusActivityManager().setDisplay(stockWatcherView.getStatusPanel());
     }
 
+    @Override
+    public String mayStop() {
+        // setDisplay null, will remove handlers from eventBus
+        getClientFactory().getStatusActivityManager().setDisplay(null);
+        return super.mayStop();
+    }
 }

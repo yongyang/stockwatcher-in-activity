@@ -20,6 +20,11 @@
           </element>
           <element id="directory" name="lib">
             <element id="library" level="project" name="Maven: com.google.gwt:gwt-servlet:2.5.0" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.1.0.Final" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:sources:4.1.0.Final" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" />
+            <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
           </element>
         </element>
         <element id="gwt-compiler-output" facet="StockWatcher/gwt/GWT" />
@@ -67,7 +72,9 @@
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+  </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
@@ -285,6 +292,39 @@
         <root url="jar://E:/Java/apache-maven-3.0.4/repository/junit/junit/4.8.1/junit-4.8.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: log4j:log4j:1.2.16">
+      <CLASSES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/log4j/log4j/1.2.16/log4j-1.2.16-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/log4j/log4j/1.2.16/log4j-1.2.16-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.hibernate:hibernate-validator:4.1.0.Final">
+      <CLASSES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.hibernate:hibernate-validator:sources:4.1.0.Final">
+      <CLASSES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final-sources.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/hibernate/hibernate-validator/4.1.0.Final/hibernate-validator-4.1.0.Final-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.json:json:20090211">
       <CLASSES>
         <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/json/json/20090211/json-20090211.jar!/" />
@@ -294,6 +334,28 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/json/json/20090211/json-20090211-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.slf4j:slf4j-api:1.6.1">
+      <CLASSES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.slf4j:slf4j-log4j12:1.6.1">
+      <CLASSES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://E:/Java/apache-maven-3.0.4/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

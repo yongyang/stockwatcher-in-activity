@@ -1,5 +1,7 @@
 package com.google.gwt.stockwatcher.shared;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,9 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 public class Stock implements Serializable{
+
+    @NotNull
+    @Size(min = 4, message = "Name must be at least 4 characters long.")
     private String code;
     private double price;
 

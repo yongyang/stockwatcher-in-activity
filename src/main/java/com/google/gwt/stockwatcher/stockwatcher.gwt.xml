@@ -8,14 +8,20 @@
     <!-- Activity&Place module inherits                                      -->
     <inherits name="com.google.gwt.activity.Activity"/>
     <inherits name="com.google.gwt.place.Place"/>
+    <inherits name="com.google.gwt.uibinder.UiBinder"/>
+    <!--<inherits name="com.google.gwt.validation.Validation"/>-->
+    <inherits name="org.hibernate.validator.HibernateValidator"/>
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.google.gwt.stockwatcher.client.StockWatcher'/>
 
-
     <!-- Use DesktopClientFactoryImpl by default -->
     <replace-with class="com.google.gwt.stockwatcher.client.ui.desktop.DesktopClientFactoryImpl">
         <when-type-is class="com.google.gwt.stockwatcher.client.ClientFactory"/>
+    </replace-with>
+
+    <replace-with class="com.google.gwt.stockwatcher.client.validation.SampleValidatorFactory">
+        <when-type-is class="javax.validation.ValidatorFactory"/>
     </replace-with>
 
     <!-- Specify the app servlets.                   -->
