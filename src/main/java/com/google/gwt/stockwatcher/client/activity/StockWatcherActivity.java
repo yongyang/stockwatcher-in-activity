@@ -1,6 +1,5 @@
 package com.google.gwt.stockwatcher.client.activity;
 
-import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.event.BuyStockEvent;
@@ -23,6 +22,9 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         final StockWatcherView stockWatcherView = getClientFactory().getView(StockWatcherView.class);
 
+        //TODO: Multi Displays, Create other ActivityManager for other Display Area
+        getClientFactory().getStatusActivityManager().setDisplay(stockWatcherView.getStatusPanel());
+
         //设置所有的事件，只有需要View和Activity交互的时候才设置 Event, 页面能自处理的页面事件，再View上自行完成
         getClientFactory().getEventBus().addHandler(BuyStockEvent.TYPE, new BuyStockEventHandler() {
             @Override
@@ -36,8 +38,6 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
         //stockWatcherView.addStock(new Stock());
         panel.setWidget(stockWatcherView.asWidget());
 
-        //TODO: Multi Displays, Create other ActivityManager for other Display Area
-        getClientFactory().getStatusActivityManager().setDisplay(stockWatcherView.getStatusPanel());
     }
 
     @Override

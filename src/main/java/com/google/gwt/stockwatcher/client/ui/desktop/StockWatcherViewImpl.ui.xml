@@ -1,6 +1,13 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
-    <g:VerticalPanel>
+    <ui:style/>
 
+    <g:VerticalPanel>
+        <g:FlexTable ui:field="stocksFlexTable"/>
+        <g:HorizontalPanel>
+            <g:TextBox ui:field="stockCode" focus="true"/>
+            <g:Button ui:field="addStock">Add</g:Button>
+        </g:HorizontalPanel>
+        <g:SimplePanel ui:field="statusPanel"/>
     </g:VerticalPanel>
 </ui:UiBinder>

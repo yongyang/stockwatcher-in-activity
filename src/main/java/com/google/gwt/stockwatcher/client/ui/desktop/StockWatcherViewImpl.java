@@ -12,6 +12,7 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -30,6 +31,14 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     private static StockWatcherViewImplUiBinder stockWatcherViewImplUiBinder = GWT.create(StockWatcherViewImplUiBinder.class);
 
     private ClientFactory clientFactory;
+
+    @UiField
+    FlexTable stocksFlexTable;
+
+/*
+    @UiField
+    FlexTable boughtStocksFlexTable;
+*/
 
     @UiField
     SimplePanel statusPanel;
