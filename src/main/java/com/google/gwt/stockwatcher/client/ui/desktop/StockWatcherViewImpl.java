@@ -35,10 +35,9 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     @UiField
     FlexTable stocksFlexTable;
 
-/*
+
     @UiField
     FlexTable boughtStocksFlexTable;
-*/
 
     @UiField
     SimplePanel statusPanel;
@@ -46,6 +45,8 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     public StockWatcherViewImpl() {
         VerticalPanel stockWatcherVerticalPanel = stockWatcherViewImplUiBinder.createAndBindUi(this);
         initWidget(stockWatcherVerticalPanel);
+        buildStocksTable();
+        buildBuyingHistoryTable();
     }
 
     @Override
@@ -84,4 +85,42 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     public void toPlace(Place place) {
         clientFactory.getPlaceController().goTo(place);
     }
+
+    private void buildBuyingHistoryTable() {
+        boughtStocksFlexTable.setText(0, 0, "Symbol");
+        boughtStocksFlexTable.setText(0, 1, "Price");
+        boughtStocksFlexTable.setText(0, 2, "Count");
+
+        // stocksFlexTable.setCellPadding(6);
+        boughtStocksFlexTable.getRowFormatter().addStyleName(0, "watchListHeader");
+        boughtStocksFlexTable.addStyleName("watchList");
+        boughtStocksFlexTable.getCellFormatter().addStyleName(0, 1,
+                "watchListNumericColumn");
+        boughtStocksFlexTable.getCellFormatter().addStyleName(0, 2,
+                "watchListNumericColumn");
+
+    }
+
+    private void buildStocksTable() {
+        // Create table for stock data.
+        stocksFlexTable.setText(0, 0, "Symbol");
+        stocksFlexTable.setText(0, 1, "Price");
+        stocksFlexTable.setText(0, 2, "Change");
+        stocksFlexTable.setText(0, 3, "Remove");
+        stocksFlexTable.setText(0, 4, "Buy");
+
+        // Add styles to elements in the stock list table.
+        stocksFlexTable.setCellPadding(6);
+        stocksFlexTable.getRowFormatter().addStyleName(0, "watchListHeader");
+        stocksFlexTable.addStyleName("watchList");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 1,
+                "watchListNumericColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 2,
+                "watchListNumericColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 3,
+                "watchListButtonColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 4,
+                "watchListButtonColumn");
+    }
+
 }

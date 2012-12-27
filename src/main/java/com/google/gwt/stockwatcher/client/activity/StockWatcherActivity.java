@@ -12,7 +12,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 /**
  *
  */
-public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
+public class StockWatcherActivity extends PlaceActivity {
 
     public StockWatcherActivity(ClientFactory clientFactory, StockWatcherPlace place) {
         super(clientFactory, place);
@@ -22,7 +22,7 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         final StockWatcherView stockWatcherView = getClientFactory().getView(StockWatcherView.class);
 
-        //TODO: Multi Displays, Create other ActivityManager for other Display Area
+        //Multi Displays, setDisplay for StatusActivityManager, StatusActivityManager will display independently according to Place
         getClientFactory().getStatusActivityManager().setDisplay(stockWatcherView.getStatusPanel());
 
         //设置所有的事件，只有需要View和Activity交互的时候才设置 Event, 页面能自处理的页面事件，再View上自行完成
@@ -43,7 +43,7 @@ public class StockWatcherActivity extends PlaceActivity<StockWatcherPlace> {
     @Override
     public String mayStop() {
         //IMPORTANT!!! setDisplay null to remove handlers from eventBus
-        getClientFactory().getStatusActivityManager().setDisplay(null);
+//        getClientFactory().getStatusActivityManager().setDisplay(null);
         return super.mayStop();
     }
 }

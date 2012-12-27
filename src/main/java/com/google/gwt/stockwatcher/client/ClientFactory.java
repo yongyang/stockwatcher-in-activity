@@ -5,6 +5,7 @@ import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.stockwatcher.client.activity.StatusActivity;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -62,10 +63,11 @@ public abstract class ClientFactory {
         }
     }
 
+    // ActivityMapper for Status Display
     protected class StatusActivityMapper implements ActivityMapper {
 
         public Activity getActivity(Place place) {
-            return null;
+            return new StatusActivity(ClientFactory.this, place);
         }
     }
 }

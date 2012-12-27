@@ -1,6 +1,7 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
-    <g:FlexTable>
-
-    </g:FlexTable>
+    <g:HorizontalPanel>
+        <g:Label>Status panel here</g:Label>
+        <g:HTML>Status panel here</g:HTML>
+    </g:HorizontalPanel>
 </ui:UiBinder>

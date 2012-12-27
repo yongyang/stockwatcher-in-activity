@@ -2,6 +2,7 @@ package com.google.gwt.stockwatcher.client.ui.desktop;
 
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.ui.ClientAware;
+import com.google.gwt.stockwatcher.client.ui.StatusView;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.user.client.ui.IsWidget;
 
@@ -29,6 +30,9 @@ public class DesktopClientFactoryImpl extends ClientFactory {
 
         if(viewInterface.equals(StockWatcherView.class)) {
             view = new StockWatcherViewImpl();
+        }
+        else if(viewInterface.equals(StatusView.class)) {
+            view = new StatusViewImpl();
         }
         else {
 

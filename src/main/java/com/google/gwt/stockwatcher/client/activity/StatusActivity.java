@@ -1,6 +1,7 @@
 package com.google.gwt.stockwatcher.client.activity;
 
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.stockwatcher.client.ui.StatusView;
@@ -9,9 +10,9 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 /**
  *
  */
-public class BoughtStocksActivity extends PlaceActivity<StockWatcherPlace> {
+public class StatusActivity extends PlaceActivity {
 
-    public BoughtStocksActivity(ClientFactory clientFactory, StockWatcherPlace place) {
+    public StatusActivity(ClientFactory clientFactory, Place place) {
         super(clientFactory, place);
     }
 
