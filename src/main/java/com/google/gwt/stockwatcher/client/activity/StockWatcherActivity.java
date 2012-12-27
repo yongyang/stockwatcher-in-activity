@@ -44,6 +44,6 @@ public class StockWatcherActivity extends PlaceActivity {
     public String mayStop() {
         //IMPORTANT!!! setDisplay null to remove handlers from eventBus
 //        getClientFactory().getStatusActivityManager().setDisplay(null);
-        return super.mayStop();
+        return "Please hold on. Activity " + this.getClass().getName() + " is stopping.";
     }
 }

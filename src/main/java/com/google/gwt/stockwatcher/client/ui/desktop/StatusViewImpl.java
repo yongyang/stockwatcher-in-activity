@@ -5,7 +5,7 @@ import com.google.gwt.stockwatcher.client.ui.StatusView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 
 import java.util.List;
 
@@ -18,16 +18,16 @@ import java.util.List;
  */
 public class StatusViewImpl extends Composite implements StatusView {
 
-    interface BoughtStocksViewImplUiBinder extends UiBinder<FlexTable, StatusViewImpl> {
+    interface StatusViewImplUiBinder extends UiBinder<HorizontalPanel, StatusViewImpl> {
     }
 
-    private static BoughtStocksViewImplUiBinder uiBinder = GWT.create(BoughtStocksViewImplUiBinder.class);
+    private static StatusViewImplUiBinder uiBinder = GWT.create(StatusViewImplUiBinder.class);
 
-    FlexTable boughtStocksFlexTable;
+    HorizontalPanel horizontalPanel;
 
     public StatusViewImpl() {
-        boughtStocksFlexTable = uiBinder.createAndBindUi(this);
-        initWidget(boughtStocksFlexTable);
+        horizontalPanel = uiBinder.createAndBindUi(this);
+        initWidget(horizontalPanel);
     }
 
     @Override

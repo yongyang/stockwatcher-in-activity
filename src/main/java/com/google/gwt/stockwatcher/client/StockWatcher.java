@@ -26,6 +26,9 @@ public class StockWatcher implements EntryPoint {
         // Start ActivityManager for the main widget with our ActivityMapper
         clientFactory.getMainActivityManager().setDisplay(appWidget);
 
+        // call statusActivityManager.setDisplay so that register it to eventBus
+        clientFactory.getStatusActivityManager().setDisplay(new SimplePanel());
+
         // Start PlaceHistoryHandler with our PlaceHistoryMapper
         StockWatcherPlaceHistoryMapper historyMapper= GWT.create(StockWatcherPlaceHistoryMapper.class);
 
