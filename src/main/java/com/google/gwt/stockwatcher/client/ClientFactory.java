@@ -26,6 +26,14 @@ public abstract class ClientFactory {
     private final ActivityManager mainActivityManager = new ActivityManager(new MainActivityMapper(), eventBus);
     private final ActivityManager statusActivityManager = new ActivityManager(new StatusActivityMapper(), eventBus);
 
+    protected ClientFactory() {
+        init();
+    }
+
+    protected void init() {
+        //TODO: setDisplay for Status ActivityManager
+    }
+
     public EventBus getEventBus() {
         return eventBus;
     }
@@ -70,4 +78,10 @@ public abstract class ClientFactory {
             return new StatusActivity(ClientFactory.this, place);
         }
     }
+
+    public ClientSession getClientSession() {
+
+    }
+
+
 }
