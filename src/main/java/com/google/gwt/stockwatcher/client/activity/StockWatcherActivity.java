@@ -9,9 +9,6 @@ import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  */
@@ -37,9 +34,6 @@ public class StockWatcherActivity extends CompositeActivity {
                 stockWatcherView.onStockAdded(stock);
             }
         });
-
-        //Multi Displays, setDisplay for StatusActivityManager, StatusActivityManager will display independently according to Place
-        getClientFactory().getStatusActivityManager().setDisplay(stockWatcherView.getStatusPanel());
 
         // add Sub Activities
         addSubActivity(stockWatcherView.getLogoPanel(), new LogoActivity(getClientFactory(), getPlace(), this));

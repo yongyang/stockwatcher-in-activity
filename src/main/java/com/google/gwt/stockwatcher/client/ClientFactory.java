@@ -19,20 +19,11 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
  * Time: 下午3:57
  * To change this template use File | Settings | File Templates.
  */
-public abstract class ClientFactory {
+public abstract class ClientFactory implements ActivityMapper {
     private final EventBus eventBus = new SimpleEventBus();
     private final PlaceController placeController = new PlaceController(eventBus);
 
-    private final ActivityManager mainActivityManager = new ActivityManager(new MainActivityMapper(), eventBus);
-    private final ActivityManager statusActivityManager = new ActivityManager(new StatusActivityMapper(), eventBus);
-
-    protected ClientFactory() {
-        init();
-    }
-
-    protected void init() {
-        //TODO: setDisplay for Status ActivityManager
-    }
+    private final ActivityManager activityManager = new ActivityManager(this, eventBus);
 
     public EventBus getEventBus() {
         return eventBus;
@@ -50,32 +41,15 @@ public abstract class ClientFactory {
      */
     public abstract <T extends IsWidget> T getView(Class<T> viewClass);
 
-    public ActivityManager getMainActivityManager() {
-        return mainActivityManager;
+    public ActivityManager getActivityManager() {
+        return activityManager;
     }
 
-    public ActivityManager getStatusActivityManager() {
-        return statusActivityManager;
-    }
-
-    protected class MainActivityMapper implements ActivityMapper {
-
-        public Activity getActivity(Place place) {
-            if(place instanceof StockWatcherPlace) {
-                return new StockWatcherActivity(ClientFactory.this, (StockWatcherPlace)place);
-            }
-            else {
-                return null;
-            }
-
+    public Activity getActivity(Place place) {
+        if(place instanceof StockWatcherPlace) {
+            return new StockWatcherActivity(ClientFactory.this, (StockWatcherPlace)place);
         }
-    }
-
-    // ActivityMapper for Status Display
-    protected class StatusActivityMapper implements ActivityMapper {
-
-        public Activity getActivity(Place place) {
-//            return new StatusActivity(ClientFactory.this, place);
+        else {
             return null;
         }
     }

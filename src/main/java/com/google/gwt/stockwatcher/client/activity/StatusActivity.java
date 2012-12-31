@@ -20,6 +20,8 @@ public class StatusActivity extends SubActivity {
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         final StatusView statusView = getClientFactory().getView(StatusView.class);
+        statusView.setAvailableStocksCount(getClientFactory().getClientSession().getAvailableStocks().size());
+        statusView.setBoughtStocksCount(getClientFactory().getClientSession().getBoughtStocks().size());
         panel.setWidget(statusView.asWidget());
     }
 

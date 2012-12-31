@@ -14,5 +14,7 @@ import java.util.List;
  */
 public interface StatusView extends IsWidget {
 
-    void setBoughtStocks(List<Stock> stocks);
+    void setAvailableStocksCount(int count);
+    void setBoughtStocksCount(int count);
+
 }

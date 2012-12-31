@@ -1,4 +1,4 @@
 stockwatcher-in-activity
 ========================
 
-A stockwatcher demo in GWT activity/place framework
+A stockwatcher best practice in GWT activity/place framework with multiple display.

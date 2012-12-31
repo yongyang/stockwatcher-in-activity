@@ -4,8 +4,10 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.stockwatcher.client.ui.StatusView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 import java.util.List;
@@ -26,13 +28,24 @@ public class StatusViewImpl extends Composite implements StatusView {
 
     VerticalPanel horizontalPanel;
 
+    @UiField
+    Label availableStocksCountLabel;
+
+    @UiField
+    Label boughtStocksCountLabel;
+
     public StatusViewImpl() {
         horizontalPanel = uiBinder.createAndBindUi(this);
         initWidget(horizontalPanel);
     }
 
     @Override
-    public void setBoughtStocks(List<Stock> stocks) {
-        //TODO: add stocks to boughtStocksFlexTable;
+    public void setAvailableStocksCount(int count) {
+        availableStocksCountLabel.setText(count + "");
+    }
+
+    @Override
+    public void setBoughtStocksCount(int count) {
+        boughtStocksCountLabel.setText(count + "");
     }
 }
