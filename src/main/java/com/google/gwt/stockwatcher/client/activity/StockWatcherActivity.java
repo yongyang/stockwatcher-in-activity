@@ -1,18 +1,21 @@
 package com.google.gwt.stockwatcher.client.activity;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.stockwatcher.client.ClientFactory;
-import com.google.gwt.stockwatcher.client.event.BuyStockEvent;
-import com.google.gwt.stockwatcher.client.event.BuyStockEventHandler;
-import com.google.gwt.stockwatcher.client.place.BuyStockPlace;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
+import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  */
-public class StockWatcherActivity extends PlaceActivity {
+public class StockWatcherActivity extends CompositeActivity {
 
     public StockWatcherActivity(ClientFactory clientFactory, StockWatcherPlace place) {
         super(clientFactory, place);
@@ -22,28 +25,35 @@ public class StockWatcherActivity extends PlaceActivity {
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         final StockWatcherView stockWatcherView = getClientFactory().getView(StockWatcherView.class);
 
+        panel.setWidget(stockWatcherView.asWidget());
+
+        // init handlers
+        stockWatcherView.addClickHandlerOfAddStockButton(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                String stockCode = stockWatcherView.getAddStockValue();
+                Stock stock = new Stock();
+                getClientFactory().getClientSession().addStock(stock);
+                stockWatcherView.onStockAdded(stock);
+            }
+        });
+
         //Multi Displays, setDisplay for StatusActivityManager, StatusActivityManager will display independently according to Place
         getClientFactory().getStatusActivityManager().setDisplay(stockWatcherView.getStatusPanel());
 
-        //设置所有的事件，只有需要View和Activity交互的时候才设置 Event, 页面能自处理的页面事件，再View上自行完成
-        getClientFactory().getEventBus().addHandler(BuyStockEvent.TYPE, new BuyStockEventHandler() {
-            @Override
-            public void onBuyStock(BuyStockEvent event) {
-                BuyStockPlace buyStockPlace = new BuyStockPlace(event.getStock().getCode());
-                buyStockPlace.setStock(event.getStock());
-                toPlace(buyStockPlace);
-            }
-        });
-        // init views
-        //stockWatcherView.addStock(new Stock());
-        panel.setWidget(stockWatcherView.asWidget());
-
+        // add Sub Activities
+        addSubActivity(stockWatcherView.getLogoPanel(), new LogoActivity(getClientFactory(), getPlace(), this));
+        addSubActivity(stockWatcherView.getStatusPanel(), new StatusActivity(getClientFactory(), getPlace(), this));
+        // super.start will start all Sub activities
+        super.start(panel, eventBus);
     }
 
     @Override
     public String mayStop() {
+        super.mayStop();
         //IMPORTANT!!! setDisplay null to remove handlers from eventBus
 //        getClientFactory().getStatusActivityManager().setDisplay(null);
         return "Please hold on. Activity " + this.getClass().getName() + " is stopping.";
     }
+
 }

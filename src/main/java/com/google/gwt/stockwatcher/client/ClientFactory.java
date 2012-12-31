@@ -75,12 +75,13 @@ public abstract class ClientFactory {
     protected class StatusActivityMapper implements ActivityMapper {
 
         public Activity getActivity(Place place) {
-            return new StatusActivity(ClientFactory.this, place);
+//            return new StatusActivity(ClientFactory.this, place);
+            return null;
         }
     }
 
     public ClientSession getClientSession() {
-
+        return ClientSession.getInstance();
     }
 
 

@@ -1,7 +1,9 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
-    <g:HorizontalPanel>
-        <g:Label>Status panel here</g:Label>
+    <g:VerticalPanel>
         <g:HTML>Status panel here</g:HTML>
-    </g:HorizontalPanel>
+        <g:HTMLPanel>
+            <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" />
+        </g:HTMLPanel>
+    </g:VerticalPanel>
 </ui:UiBinder>

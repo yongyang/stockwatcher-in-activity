@@ -6,6 +6,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
+import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
@@ -33,6 +34,9 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     private ClientFactory clientFactory;
 
     @UiField
+    Button addStockButton;
+
+    @UiField
     FlexTable stocksFlexTable;
 
 
@@ -41,6 +45,10 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
 
     @UiField
     SimplePanel statusPanel;
+
+    @UiField
+    SimplePanel logoPanel;
+
 
     public StockWatcherViewImpl() {
         VerticalPanel stockWatcherVerticalPanel = stockWatcherViewImplUiBinder.createAndBindUi(this);
@@ -55,7 +63,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     }
 
     @Override
-    public void addStock(String code) {
+    public void onStockAdded(Stock code) {
         //To change body of implemented methods use File | Settings | File Templates.
 
         Button buyButton = new Button("Buy");
@@ -66,6 +74,11 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
 //                eventBus.fireEvent(new BuyStockEvent(null));
             }
         });
+    }
+
+    @Override
+    public AcceptsOneWidget getLogoPanel() {
+        return logoPanel;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public AcceptsOneWidget getStatusPanel() {
@@ -80,6 +93,16 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     @Override
     public void addBoughtStock() {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+
+    public void addClickHandlerOfAddStockButton(ClickHandler clickHandler){
+        addStockButton.addClickHandler(clickHandler);
+    }
+
+    @Override
+    public String getAddStockValue() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public void toPlace(Place place) {

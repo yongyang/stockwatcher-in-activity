@@ -6,6 +6,7 @@ import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 import java.util.List;
 
@@ -18,12 +19,12 @@ import java.util.List;
  */
 public class StatusViewImpl extends Composite implements StatusView {
 
-    interface StatusViewImplUiBinder extends UiBinder<HorizontalPanel, StatusViewImpl> {
+    interface StatusViewImplUiBinder extends UiBinder<VerticalPanel, StatusViewImpl> {
     }
 
     private static StatusViewImplUiBinder uiBinder = GWT.create(StatusViewImplUiBinder.class);
 
-    HorizontalPanel horizontalPanel;
+    VerticalPanel horizontalPanel;
 
     public StatusViewImpl() {
         horizontalPanel = uiBinder.createAndBindUi(this);

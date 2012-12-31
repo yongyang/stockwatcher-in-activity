@@ -21,7 +21,7 @@ public class StockWatcher implements EntryPoint {
 
     public void onModuleLoad() {
 
-        RootPanel.get("stockList").add(appWidget);
+        RootPanel.get().add(appWidget);
 
         // Start ActivityManager for the main widget with our ActivityMapper
         clientFactory.getMainActivityManager().setDisplay(appWidget);

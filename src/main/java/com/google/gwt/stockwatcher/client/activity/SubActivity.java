@@ -7,6 +7,8 @@ import com.google.gwt.stockwatcher.client.ClientFactory;
 /**
  * Sub Activity is a kind of Activity instantiated by its parent Activity
  * Sub Activity responsible for init the display area which is managed by it.
+ * Sub Activity doesn't have its own Place, it uses parent Activity's place.
+ * Sub Activity instantiate & stop by its parent Activity
  */
 public abstract class SubActivity extends PlaceActivity {
 
