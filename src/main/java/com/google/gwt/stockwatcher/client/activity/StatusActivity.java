@@ -13,16 +13,21 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
  */
 public class StatusActivity extends SubActivity {
 
+    private StatusView statusView = null;
+
     protected StatusActivity(ClientFactory clientFactory, Place place, Activity parentActivity) {
         super(clientFactory, place, parentActivity);
     }
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
-        final StatusView statusView = getClientFactory().getView(StatusView.class);
-        statusView.setAvailableStocksCount(getClientFactory().getClientSession().getAvailableStocks().size());
-        statusView.setBoughtStocksCount(getClientFactory().getClientSession().getBoughtStocks().size());
+        statusView = getClientFactory().getView(StatusView.class);
         panel.setWidget(statusView.asWidget());
+        updateStatus();
     }
 
+    public void updateStatus() {
+        statusView.setAvailableStocksCount(getClientFactory().getClientSession().getAvailableStocks().size());
+        statusView.setBoughtStocksCount(getClientFactory().getClientSession().getBoughtStocks().size());
+    }
 }

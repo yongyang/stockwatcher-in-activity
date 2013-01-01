@@ -15,6 +15,9 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
  */
 public class StockWatcherActivity extends CompositeActivity {
 
+    private StatusActivity statusActivity;
+    private LogoActivity logoActivity;
+
     public StockWatcherActivity(ClientFactory clientFactory, StockWatcherPlace place) {
         super(clientFactory, place);
     }
@@ -40,8 +43,10 @@ public class StockWatcherActivity extends CompositeActivity {
 */
 
         // add Sub Activities
-        addSubActivity(stockWatcherView.getLogoPanel(), new LogoActivity(getClientFactory(), getPlace(), this));
-        addSubActivity(stockWatcherView.getStatusPanel(), new StatusActivity(getClientFactory(), getPlace(), this));
+        logoActivity = new LogoActivity(getClientFactory(), getPlace(), this);
+        statusActivity = new StatusActivity(getClientFactory(), getPlace(), this);
+        addSubActivity(stockWatcherView.getLogoPanel(), logoActivity);
+        addSubActivity(stockWatcherView.getStatusPanel(), statusActivity);
         // super.start will start all Sub activities
         super.start(panel, eventBus);
     }
@@ -52,6 +57,14 @@ public class StockWatcherActivity extends CompositeActivity {
         //IMPORTANT!!! setDisplay null to remove handlers from eventBus
 //        getClientFactory().getStatusActivityManager().setDisplay(null);
         return "Please hold on. Activity " + this.getClass().getName() + " is stopping.";
+    }
+
+    public Stock addStock(String stockCode) {
+        Stock stock = new Stock();
+        stock.setCode(stockCode);
+        //TODO: validate
+        statusActivity.updateStatus();
+        return stock;
     }
 
 }

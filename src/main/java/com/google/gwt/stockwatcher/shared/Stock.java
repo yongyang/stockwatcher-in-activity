@@ -18,6 +18,7 @@ public class Stock implements Serializable{
     private String code;
     private double price;
 
+    private double change;
 
     public String getCode() {
         return code;
@@ -33,6 +34,10 @@ public class Stock implements Serializable{
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getChange() {
+        return change;
     }
 
     public Stock fromString(String placeToken) {

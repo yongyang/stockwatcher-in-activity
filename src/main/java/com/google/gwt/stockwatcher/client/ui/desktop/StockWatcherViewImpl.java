@@ -1,6 +1,5 @@
 package com.google.gwt.stockwatcher.client.ui.desktop;
 
-import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -8,6 +7,7 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.activity.PlaceActivity;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
+import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
@@ -17,6 +17,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
@@ -34,6 +35,9 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     private static StockWatcherViewImplUiBinder stockWatcherViewImplUiBinder = GWT.create(StockWatcherViewImplUiBinder.class);
 
     private StockWatcherActivity stockWatcherActivity;
+
+    @UiField
+    TextBox stockCodeTextBox;
 
     @UiField
     Button addStockButton;
@@ -67,6 +71,9 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         addStockButton.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
+                String stockCode = stockCodeTextBox.getValue().trim();
+                //TODO: validate
+                Stock newStock = stockWatcherActivity.addStock(stockCode);
                 Window.alert("Add Stock clicked. View: " + this + ", Activity: " + stockWatcherActivity);
             }
         });
