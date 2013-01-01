@@ -1,7 +1,7 @@
 package com.google.gwt.stockwatcher.client.ui.desktop;
 
 import com.google.gwt.stockwatcher.client.ClientFactory;
-import com.google.gwt.stockwatcher.client.ui.ClientAware;
+import com.google.gwt.stockwatcher.client.ui.ActivityView;
 import com.google.gwt.stockwatcher.client.ui.LogoView;
 import com.google.gwt.stockwatcher.client.ui.StatusView;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
@@ -45,10 +45,12 @@ public class DesktopClientFactoryImpl extends ClientFactory {
             throw new RuntimeException("No corresponding view for view interface: " + viewInterface.getName());
             //TODO:
         }
-        if(view instanceof ClientAware) {
-            ((ClientAware)view).setClientFactory(this);
+/*
+        if(view instanceof ActivityView) {
+            ((ActivityView)view).setActivity(this);
             viewMap.put(viewInterface.getName(), view);
         }
+*/
         return (T)view;
     }
 }

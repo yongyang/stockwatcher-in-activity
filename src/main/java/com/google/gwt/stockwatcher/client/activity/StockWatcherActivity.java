@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
+import com.google.gwt.stockwatcher.client.ui.ActivityView;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
@@ -21,10 +22,12 @@ public class StockWatcherActivity extends CompositeActivity {
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         final StockWatcherView stockWatcherView = getClientFactory().getView(StockWatcherView.class);
+        stockWatcherView.setActivity(this);
 
         panel.setWidget(stockWatcherView.asWidget());
 
         // init handlers
+/*
         stockWatcherView.addClickHandlerOfAddStockButton(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -34,6 +37,7 @@ public class StockWatcherActivity extends CompositeActivity {
                 stockWatcherView.onStockAdded(stock);
             }
         });
+*/
 
         // add Sub Activities
         addSubActivity(stockWatcherView.getLogoPanel(), new LogoActivity(getClientFactory(), getPlace(), this));

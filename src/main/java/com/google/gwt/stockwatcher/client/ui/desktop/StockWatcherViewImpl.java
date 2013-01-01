@@ -1,15 +1,17 @@
 package com.google.gwt.stockwatcher.client.ui.desktop;
 
+import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.place.shared.Place;
-import com.google.gwt.stockwatcher.client.ClientFactory;
+import com.google.gwt.stockwatcher.client.activity.PlaceActivity;
+import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
-import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -31,7 +33,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     }
     private static StockWatcherViewImplUiBinder stockWatcherViewImplUiBinder = GWT.create(StockWatcherViewImplUiBinder.class);
 
-    private ClientFactory clientFactory;
+    private StockWatcherActivity stockWatcherActivity;
 
     @UiField
     Button addStockButton;
@@ -58,10 +60,19 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     }
 
     @Override
-    public void setClientFactory(ClientFactory clientFactory) {
-        this.clientFactory = clientFactory;
+    public void setActivity(StockWatcherActivity activity) {
+        this.stockWatcherActivity = activity;
+
+        // now init handlers
+        addStockButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                Window.alert("Add Stock clicked. View: " + this + ", Activity: " + stockWatcherActivity);
+            }
+        });
     }
 
+/*
     @Override
     public void onStockAdded(Stock code) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -75,6 +86,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
             }
         });
     }
+*/
 
     @Override
     public AcceptsOneWidget getLogoPanel() {
@@ -85,28 +97,8 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         return statusPanel;
     }
 
-    @Override
-    public void removeStock(String code) {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public void addBoughtStock() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-
-    public void addClickHandlerOfAddStockButton(ClickHandler clickHandler){
-        addStockButton.addClickHandler(clickHandler);
-    }
-
-    @Override
-    public String getAddStockValue() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
     public void toPlace(Place place) {
-        clientFactory.getPlaceController().goTo(place);
+        ((PlaceActivity) stockWatcherActivity).toPlace(place);
     }
 
     private void buildBuyingHistoryTable() {
