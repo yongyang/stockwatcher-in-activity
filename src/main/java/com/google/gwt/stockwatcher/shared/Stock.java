@@ -15,17 +15,17 @@ public class Stock implements Serializable{
 
     @NotNull
     @Size(min = 4, message = "Name must be at least 4 characters long.")
-    private String code;
+    private String symbol;
     private double price;
 
     private double change;
 
-    public String getCode() {
-        return code;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public double getPrice() {

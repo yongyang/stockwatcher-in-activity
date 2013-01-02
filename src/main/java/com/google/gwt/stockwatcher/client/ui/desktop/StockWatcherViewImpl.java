@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -37,7 +38,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     private StockWatcherActivity stockWatcherActivity;
 
     @UiField
-    TextBox stockCodeTextBox;
+    TextBox stockSymbolTextBox;
 
     @UiField
     Button addStockButton;
@@ -71,9 +72,10 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         addStockButton.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                String stockCode = stockCodeTextBox.getValue().trim();
+                String stockCode = stockSymbolTextBox.getValue().trim();
                 //TODO: validate
                 Stock newStock = stockWatcherActivity.addStock(stockCode);
+                addNewRow(newStock.getSymbol());
                 Window.alert("Add Stock clicked. View: " + this + ", Activity: " + stockWatcherActivity);
             }
         });
@@ -143,6 +145,28 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 "watchListButtonColumn");
         stocksFlexTable.getCellFormatter().addStyleName(0, 4,
                 "watchListButtonColumn");
+    }
+
+    private void addNewRow(String symbol) {
+        int row = stocksFlexTable.getRowCount();
+        stocksFlexTable.setText(row, 0, symbol);
+        stocksFlexTable.setWidget(row, 2, new Label());
+        stocksFlexTable.getCellFormatter().addStyleName(row, 1,
+                "watchListNumericColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(row, 2,
+                "watchListNumericColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(row, 3,
+                "watchListRemoveColumn");
+
+        Button removeStockButton = new Button("x");
+        removeStockButton.addStyleDependentName("remove");
+        stocksFlexTable.setWidget(row, 3, removeStockButton);
+
+        Button buyButton = new Button("$");
+        buyButton.addStyleDependentName("Buy");
+        stocksFlexTable.setWidget(row, 4, buyButton);
+
+        this.stockSymbolTextBox.setText("");
     }
 
 }
