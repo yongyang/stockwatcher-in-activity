@@ -12,7 +12,6 @@ import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -79,7 +78,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 //TODO: validate
                 Stock newStock = stockWatcherActivity.addStock(stockCode);
 //                addNewRow(newStock);
-                refreshView(stockWatcherActivity.getAllAvailableStocks());
+                refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
             }
         });
     }
@@ -200,7 +199,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         changeWidget.setStyleName(changeStyleName);
     }
 
-    private void refreshView(List<Stock> stocks) {
+    private void refreshStocksFlexTable(List<Stock> stocks) {
         int numRows = stocksFlexTable.getRowCount();
         for (int i = 1; i < numRows; i++) {
             stocksFlexTable.removeRow(1);
