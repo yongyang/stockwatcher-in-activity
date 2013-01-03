@@ -29,6 +29,9 @@ public class ClientSession implements Serializable {
     }
 
     public List<Stock> getAvailableStocks() {
+        for(Stock stock : availableStocks){
+            stock.updatePrice();
+        }
         return availableStocks;
     }
 

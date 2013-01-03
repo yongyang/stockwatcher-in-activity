@@ -3,6 +3,7 @@ package com.google.gwt.stockwatcher.client.ui.desktop;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.activity.PlaceActivity;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
@@ -75,8 +76,8 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 String stockCode = stockSymbolTextBox.getValue().trim();
                 //TODO: validate
                 Stock newStock = stockWatcherActivity.addStock(stockCode);
-                addNewRow(newStock.getSymbol());
-                Window.alert("Add Stock clicked. View: " + this + ", Activity: " + stockWatcherActivity);
+                addNewRow(newStock);
+//                Window.alert("Add Stock clicked. View: " + this + ", Activity: " + stockWatcherActivity);
             }
         });
     }
@@ -147,7 +148,8 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 "watchListButtonColumn");
     }
 
-    private void addNewRow(String symbol) {
+    private void addNewRow(Stock stock) {
+        String symbol = stock.getSymbol();
         int row = stocksFlexTable.getRowCount();
         stocksFlexTable.setText(row, 0, symbol);
         stocksFlexTable.setWidget(row, 2, new Label());
@@ -167,6 +169,33 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         stocksFlexTable.setWidget(row, 4, buyButton);
 
         this.stockSymbolTextBox.setText("");
+
+        updatePrice(row, stock.getPrice());
+        updateChangePercent(row, stock.getChange(), stock.getChangePercent());
+    }
+
+    private void updatePrice(int row, double value) {
+        String priceText = NumberFormat.getFormat("#,##0.00").format(value);
+        stocksFlexTable.setText(row, 1, priceText);
+    }
+
+    private void updateChangePercent(int row, double change, double changePercent) {
+        NumberFormat changeFormat = NumberFormat
+                .getFormat("+#,##0.00;-#,##0.00");
+        String changeText = changeFormat.format(change);
+        String changePercentText = changeFormat.format(changePercent);
+
+        Label changeWidget = (Label) stocksFlexTable.getWidget(row, 2);
+        changeWidget.setText(changeText + " (" + changePercentText + "%)");
+
+        String changeStyleName = "noChange";
+        if (changePercent < -0.1f) {
+            changeStyleName = "negativeChange";
+        } else if (changePercent > 0.1f) {
+            changeStyleName = "positiveChange";
+        }
+
+        changeWidget.setStyleName(changeStyleName);
     }
 
 }

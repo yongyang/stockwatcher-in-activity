@@ -3,6 +3,8 @@ package com.google.gwt.stockwatcher.shared;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +22,10 @@ public class Stock implements Serializable{
 
     private double change;
 
+    public Stock() {
+        updatePrice();
+    }
+
     public String getSymbol() {
         return symbol;
     }
@@ -32,15 +38,29 @@ public class Stock implements Serializable{
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public double getChange() {
         return change;
     }
 
+    public double getChangePercent() {
+        return 100.0 * this.change / this.price;
+    }
+
     public Stock fromString(String placeToken) {
+        //TODO:
         return null;
     }
+
+
+    public void updatePrice() {
+        Random rnd = new Random();
+        price = rnd.nextDouble() * MAX_PRICE;
+        change = price * MAX_PRICE_CHANGE
+                * (rnd.nextDouble() * 2f - 1f);
+
+    }
+
+    private static final double MAX_PRICE = 100.0; // $100.00
+    private static final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
+
 }
