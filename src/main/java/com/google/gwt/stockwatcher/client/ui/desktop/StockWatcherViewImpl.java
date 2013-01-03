@@ -22,6 +22,8 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -76,8 +78,8 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 String stockCode = stockSymbolTextBox.getValue().trim();
                 //TODO: validate
                 Stock newStock = stockWatcherActivity.addStock(stockCode);
-                addNewRow(newStock);
-//                Window.alert("Add Stock clicked. View: " + this + ", Activity: " + stockWatcherActivity);
+//                addNewRow(newStock);
+                refreshView(stockWatcherActivity.getAllAvailableStocks());
             }
         });
     }
@@ -196,6 +198,13 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         }
 
         changeWidget.setStyleName(changeStyleName);
+    }
+
+    private void refreshView(List<Stock> stocks) {
+        stocksFlexTable.removeAllRows();
+        for(Stock stock: stocks){
+            addNewRow(stock);
+        }
     }
 
 }

@@ -7,6 +7,8 @@ import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
+import java.util.List;
+
 /**
  *
  */
@@ -60,10 +62,15 @@ public class StockWatcherActivity extends CompositeActivity {
         Stock stock = new Stock();
         stock.setSymbol(symbol);
         //TODO: validate
+        //TODO: existed check
         getClientFactory().getClientSession().addStock(stock);
         // update status panel
         statusActivity.updateStatus();
         return stock;
+    }
+
+    public List<Stock> getAllAvailableStocks() {
+        return getClientFactory().getClientSession().getAvailableStocks();
     }
 
 }
