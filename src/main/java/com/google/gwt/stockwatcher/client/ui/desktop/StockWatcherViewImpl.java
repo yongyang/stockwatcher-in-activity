@@ -12,6 +12,7 @@ import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -21,6 +22,7 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
+import javax.validation.ValidationException;
 import java.util.List;
 
 /**
@@ -74,11 +76,20 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         addStockButton.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                String stockCode = stockSymbolTextBox.getValue().trim();
+                String symbol = stockSymbolTextBox.getValue().trim();
+                if(stockWatcherActivity.hasStock(symbol)) {
+                    Window.alert("Unique constraint of symbol, " + symbol);
+                    return;
+                }
                 //TODO: validate
-                Stock newStock = stockWatcherActivity.addStock(stockCode);
+                try {
+                    Stock newStock = stockWatcherActivity.addStock(symbol);
 //                addNewRow(newStock);
-                refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
+                    refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
+                }
+                catch (ValidationException e) {
+                    Window.alert("Validation constraint of symbol [" + e.getMessage() + "], " + symbol);
+                }
             }
         });
     }

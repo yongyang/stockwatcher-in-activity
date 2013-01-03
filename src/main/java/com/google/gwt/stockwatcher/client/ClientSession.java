@@ -53,4 +53,14 @@ public class ClientSession implements Serializable {
             }
         }
     }
+
+    public boolean hasStock(String symbol) {
+        for(Iterator<Stock> it = availableStocks.iterator(); it.hasNext();){
+            Stock stock = it.next();
+            if(stock.getSymbol().equals(symbol)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

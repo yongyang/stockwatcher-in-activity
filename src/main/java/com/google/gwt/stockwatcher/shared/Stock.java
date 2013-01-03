@@ -16,7 +16,7 @@ import java.util.Random;
 public class Stock implements Serializable{
 
     @NotNull
-    @Size(min = 4, message = "Name must be at least 4 characters long.")
+    @Size(min = 4, message = "Symbol must be at least 4 characters.")
     private String symbol;
     private double price;
 

@@ -7,7 +7,13 @@ import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.ValidationException;
+import javax.validation.Validator;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -61,6 +67,13 @@ public class StockWatcherActivity extends CompositeActivity {
     public Stock addStock(String symbol) {
         Stock stock = new Stock();
         stock.setSymbol(symbol);
+
+        Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+        Set<ConstraintViolation<Stock>> violations = validator.validate(stock);
+        if(!violations.isEmpty()) {
+            throw new ValidationException(violations.iterator().next().getMessage());
+        }
+
         //TODO: validate
         //TODO: existed check
         getClientFactory().getClientSession().addStock(stock);
@@ -81,4 +94,7 @@ public class StockWatcherActivity extends CompositeActivity {
         return getClientFactory().getClientSession().getAvailableStocks();
     }
 
+    public boolean hasStock(String symbol) {
+        return getClientFactory().getClientSession().hasStock(symbol);
+    }
 }
