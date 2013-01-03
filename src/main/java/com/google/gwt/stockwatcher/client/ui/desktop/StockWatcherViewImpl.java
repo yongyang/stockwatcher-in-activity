@@ -149,7 +149,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 "watchListButtonColumn");
     }
 
-    private void addNewRow(Stock stock) {
+    private void addNewRow(final Stock stock) {
         String symbol = stock.getSymbol();
         int row = stocksFlexTable.getRowCount();
         stocksFlexTable.setText(row, 0, symbol);
@@ -164,6 +164,14 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         Button removeStockButton = new Button("x");
         removeStockButton.addStyleDependentName("remove");
         stocksFlexTable.setWidget(row, 3, removeStockButton);
+        removeStockButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                stockWatcherActivity.removeStock(stock.getSymbol());
+                removeRow(stock.getSymbol());
+                refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
+            }
+        });
 
         Button buyButton = new Button("$");
         buyButton.addStyleDependentName("Buy");
@@ -181,8 +189,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     }
 
     private void updateChangePercent(int row, double change, double changePercent) {
-        NumberFormat changeFormat = NumberFormat
-                .getFormat("+#,##0.00;-#,##0.00");
+        NumberFormat changeFormat = NumberFormat.getFormat("+#,##0.00;-#,##0.00");
         String changeText = changeFormat.format(change);
         String changePercentText = changeFormat.format(changePercent);
 
@@ -207,6 +214,19 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         for(Stock stock: stocks){
             addNewRow(stock);
         }
+    }
+
+    private void removeRow(String symbol) {
+        stocksFlexTable.removeRow(findRowNumberOfSymbol(symbol));
+    }
+
+    private int findRowNumberOfSymbol(String symbol) {
+        for (int row = 1; row < stocksFlexTable.getRowCount(); row++) {
+            if (this.stocksFlexTable.getText(row, 0).equals(symbol)) {
+                return row;
+            }
+        }
+        return -1;
     }
 
 }

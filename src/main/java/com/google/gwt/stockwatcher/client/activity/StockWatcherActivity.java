@@ -70,7 +70,7 @@ public class StockWatcherActivity extends CompositeActivity {
     }
 
     public void removeStock(String symbol) {
-
+        getClientFactory().getClientSession().removeStock(symbol);
     }
 
     public void buyStock(String symbol) {

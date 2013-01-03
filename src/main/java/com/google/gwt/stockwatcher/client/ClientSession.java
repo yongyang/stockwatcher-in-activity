@@ -4,6 +4,7 @@ import com.google.gwt.stockwatcher.shared.Stock;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -41,5 +42,15 @@ public class ClientSession implements Serializable {
 
     public void addStock(Stock stock) {
         availableStocks.add(stock);
+    }
+
+    public void removeStock(String symbol) {
+        for(Iterator<Stock> it = availableStocks.iterator(); it.hasNext();){
+            Stock stock = it.next();
+            if(stock.getSymbol().equals(symbol)) {
+                it.remove();
+                break;
+            }
+        }
     }
 }
