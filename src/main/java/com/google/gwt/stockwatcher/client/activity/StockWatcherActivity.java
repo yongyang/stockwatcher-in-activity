@@ -69,6 +69,14 @@ public class StockWatcherActivity extends CompositeActivity {
         return stock;
     }
 
+    public void removeStock(String symbol) {
+
+    }
+
+    public void buyStock(String symbol) {
+
+    }
+
     public List<Stock> getAllAvailableStocks() {
         return getClientFactory().getClientSession().getAvailableStocks();
     }

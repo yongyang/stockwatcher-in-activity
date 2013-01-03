@@ -201,7 +201,10 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
     }
 
     private void refreshView(List<Stock> stocks) {
-        stocksFlexTable.removeAllRows();
+        int numRows = stocksFlexTable.getRowCount();
+        for (int i = 1; i < numRows; i++) {
+            stocksFlexTable.removeRow(1);
+        }
         for(Stock stock: stocks){
             addNewRow(stock);
         }
