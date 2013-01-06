@@ -23,7 +23,7 @@ public class Stock implements Serializable{
     private double change;
 
     public Stock() {
-        updatePrice();
+
     }
 
     public String getSymbol() {

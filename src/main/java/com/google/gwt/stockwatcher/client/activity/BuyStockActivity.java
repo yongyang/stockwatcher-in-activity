@@ -19,7 +19,7 @@ import java.util.Set;
 /**
  *
  */
-public class BuyStockActivity extends CompositeActivity {
+public class BuyStockActivity extends CompositeActivity<BuyStockPlace> {
 
     private StatusActivity statusActivity;
     private LogoActivity logoActivity;
@@ -34,18 +34,11 @@ public class BuyStockActivity extends CompositeActivity {
         buyStockView.setActivity(this);
         panel.setWidget(buyStockView.asWidget());
 
-        // init handlers
-/*
-        stockWatcherView.addClickHandlerOfAddStockButton(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                String stockCode = stockWatcherView.getAddStockValue();
-                Stock stock = new Stock();
-                getClientFactory().getClientSession().addStock(stock);
-                stockWatcherView.onStockAdded(stock);
-            }
-        });
-*/
+        String symbol = getPlace().getSymbol();
+        Stock stock = getClientFactory().getClientSession().getAvailableStock(symbol);
+        if(stock != null) {
+            buyStockView.updateView(stock);
+        }
 
         // add Sub Activities
         logoActivity = new LogoActivity(getClientFactory(), getPlace(), this);
@@ -58,10 +51,7 @@ public class BuyStockActivity extends CompositeActivity {
 
     @Override
     public String mayStop() {
-        super.mayStop();
-        //IMPORTANT!!! setDisplay null to remove handlers from eventBus
-//        getClientFactory().getStatusActivityManager().setDisplay(null);
-        return "Please hold on. Activity " + this.getClass().getName() + " is stopping.";
+        return super.mayStop();
     }
 
 

@@ -6,6 +6,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.stockwatcher.client.activity.BuyStockActivity;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.stockwatcher.client.ui.BuyStockView;
+import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
@@ -50,6 +51,11 @@ public class BuyStockViewImpl extends Composite implements BuyStockView {
     public BuyStockViewImpl() {
         VerticalPanel verticalPanel = ourUiBinder.createAndBindUi(this);
         initWidget(verticalPanel);
+    }
+
+    public void updateView(Stock stock){
+        symbol.setText(stock.getSymbol());
+        price.setText(stock.getPrice() + "");
     }
 
     public SimplePanel getLogoPanel() {

@@ -18,11 +18,11 @@ import java.util.Map;
  * Time: 下午2:17
  * To change this template use File | Settings | File Templates.
  */
-public abstract class CompositeActivity extends PlaceActivity {
+public abstract class CompositeActivity<T extends Place> extends PlaceActivity<T> {
 
     private Map<AcceptsOneWidget,SubActivity> subActivities = new HashMap<AcceptsOneWidget, SubActivity>();
 
-    public CompositeActivity(ClientFactory clientFactory, Place place) {
+    public CompositeActivity(ClientFactory clientFactory, T place) {
         super(clientFactory, place);
     }
 

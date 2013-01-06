@@ -1,6 +1,7 @@
 package com.google.gwt.stockwatcher.client.ui;
 
 import com.google.gwt.stockwatcher.client.activity.BuyStockActivity;
+import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 
@@ -17,4 +18,5 @@ public interface BuyStockView extends IsWidget, ActivityView<BuyStockActivity>{
 
     AcceptsOneWidget getLogoPanel();
 
+    void updateView(Stock stock);
 }

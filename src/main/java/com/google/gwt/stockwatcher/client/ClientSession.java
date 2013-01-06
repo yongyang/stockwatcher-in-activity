@@ -36,6 +36,13 @@ public class ClientSession implements Serializable {
         return availableStocks;
     }
 
+    public int getAvailableStockCount() {
+        return availableStocks.size();
+    }
+    public int getBoughtStockCount() {
+        return boughtStocks.size();
+    }
+
     public List<Stock> getBoughtStocks() {
         return boughtStocks;
     }
@@ -63,4 +70,15 @@ public class ClientSession implements Serializable {
         }
         return false;
     }
+
+    public Stock getAvailableStock(String symbol) {
+        for(Iterator<Stock> it = availableStocks.iterator(); it.hasNext();){
+            Stock stock = it.next();
+            if(stock.getSymbol().equals(symbol)) {
+                return stock;
+            }
+        }
+        return null;
+    }
+
 }

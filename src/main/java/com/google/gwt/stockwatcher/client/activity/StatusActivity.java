@@ -28,7 +28,7 @@ public class StatusActivity extends SubActivity {
     }
 
     public void updateStatus() {
-        statusView.setAvailableStocksCount(getClientFactory().getClientSession().getAvailableStocks().size());
-        statusView.setBoughtStocksCount(getClientFactory().getClientSession().getBoughtStocks().size());
+        statusView.setAvailableStocksCount(getClientFactory().getClientSession().getAvailableStockCount());
+        statusView.setBoughtStocksCount(getClientFactory().getClientSession().getBoughtStockCount());
     }
 }

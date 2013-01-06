@@ -12,12 +12,12 @@ import com.google.gwt.stockwatcher.client.ClientFactory;
  *
  * 注意：所有与View具体实现逻辑相关的代码都不应在Activity中
  */
-public abstract class PlaceActivity extends AbstractActivity{
+public abstract class PlaceActivity<T extends Place> extends AbstractActivity{
 
     private ClientFactory clientFactory;
-    private Place place;
+    private T place;
 
-    protected PlaceActivity(ClientFactory clientFactory, Place place) {
+    protected PlaceActivity(ClientFactory clientFactory, T place) {
         this.clientFactory = clientFactory;
         this.place = place;
     }
@@ -26,7 +26,7 @@ public abstract class PlaceActivity extends AbstractActivity{
         return clientFactory;
     }
 
-    public Place getPlace() {
+    public T getPlace() {
         return place;
     }
 
