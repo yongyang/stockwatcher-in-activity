@@ -10,6 +10,9 @@ NOTE: getView is implemented by its sub-class, so different implementation(Deskt
 Activity:
 Responsible for init view, and update view according data, handle process all logic, including calling backend service.
 
+CompositeActivity is a kind of Activity which has sub-activities, see StockWatcherActivity.
+SubAcitivity doesn't have a place.
+
 Place:
 Place can handle Sting-nize Object, so the parameter can be transfer to Acticity.
 
@@ -17,4 +20,4 @@ View:
 Responsible for organizing widget, generally by UI binder.
 Has reference to Activity, call Activity to process all logic.
 
-For multiple display View, see stockwatcher view and buystock view and their activity to see how to handle.
+For multiple display View, see stockwatcher view and buystock viewes & activities.
