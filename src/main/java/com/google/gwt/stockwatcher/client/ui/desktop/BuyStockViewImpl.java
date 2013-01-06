@@ -1,7 +1,10 @@
 package com.google.gwt.stockwatcher.client.ui.desktop;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.stockwatcher.client.activity.BuyStockActivity;
+import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.stockwatcher.client.ui.BuyStockView;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -57,7 +60,14 @@ public class BuyStockViewImpl extends Composite implements BuyStockView {
         return statusPanel;
     }
 
-    public void setActivity(BuyStockActivity buyStockActivity) {
-        this.buyStockActivity = buyStockActivity;
+    public void setActivity(BuyStockActivity _buyStockActivity) {
+        this.buyStockActivity = _buyStockActivity;
+
+        cancelButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                buyStockActivity.toPlace(new StockWatcherPlace());
+            }
+        });
     }
 }

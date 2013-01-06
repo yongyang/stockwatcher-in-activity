@@ -13,6 +13,6 @@ import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
  * To change this template use File | Settings | File Templates.
  */
 
-@WithTokenizers({StockWatcherPlace.class, BuyStockPlace.Tokenizer.class})
+@WithTokenizers({StockWatcherPlace.Tokenizer.class, BuyStockPlace.Tokenizer.class})
 public interface StockWatcherPlaceHistoryMapper extends PlaceHistoryMapper{
 }

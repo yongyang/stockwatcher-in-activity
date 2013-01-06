@@ -23,6 +23,7 @@ public class StatusActivity extends SubActivity {
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         statusView = getClientFactory().getView(StatusView.class);
         panel.setWidget(statusView.asWidget());
+        // update status on init
         updateStatus();
     }
 

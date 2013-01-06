@@ -2,6 +2,7 @@ package com.google.gwt.stockwatcher.client.place;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
+import com.google.gwt.place.shared.Prefix;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +23,7 @@ public class BuyStockPlace extends Place {
         return symbol;
     }
 
+    @Prefix("buy")
     public static class Tokenizer implements PlaceTokenizer<BuyStockPlace> {
 
         @Override
