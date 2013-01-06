@@ -2,15 +2,11 @@ package com.google.gwt.stockwatcher.client.ui.desktop;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.stockwatcher.client.ui.StatusView;
-import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

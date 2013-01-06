@@ -1,9 +1,6 @@
 package com.google.gwt.stockwatcher.client.ui;
 
-import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.IsWidget;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

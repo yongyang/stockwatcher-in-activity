@@ -5,10 +5,8 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 /**

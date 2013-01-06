@@ -5,7 +5,6 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.ui.LogoView;
-import com.google.gwt.stockwatcher.client.ui.StatusView;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 /**

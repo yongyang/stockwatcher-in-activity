@@ -3,18 +3,11 @@ package com.google.gwt.stockwatcher.client.activity;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.stockwatcher.client.ClientFactory;
 import com.google.gwt.stockwatcher.client.place.BuyStockPlace;
-import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.stockwatcher.client.ui.BuyStockView;
-import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.ValidationException;
-import javax.validation.Validator;
 import java.util.List;
-import java.util.Set;
 
 /**
  *

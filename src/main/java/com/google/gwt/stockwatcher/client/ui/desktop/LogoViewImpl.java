@@ -5,7 +5,6 @@ import com.google.gwt.stockwatcher.client.ui.LogoView;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * Created with IntelliJ IDEA.

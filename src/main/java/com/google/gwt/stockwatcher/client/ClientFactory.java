@@ -6,7 +6,6 @@ import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.stockwatcher.client.activity.BuyStockActivity;
-import com.google.gwt.stockwatcher.client.activity.StatusActivity;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
 import com.google.gwt.stockwatcher.client.place.BuyStockPlace;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;

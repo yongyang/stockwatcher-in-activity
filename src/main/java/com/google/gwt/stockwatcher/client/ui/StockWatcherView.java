@@ -1,8 +1,6 @@
 package com.google.gwt.stockwatcher.client.ui;
 
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
-import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 

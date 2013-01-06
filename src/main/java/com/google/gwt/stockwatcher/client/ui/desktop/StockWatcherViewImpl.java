@@ -82,7 +82,6 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                     Window.alert("Unique constraint of symbol, " + symbol);
                     return;
                 }
-                //TODO: validate
                 try {
                     Stock newStock = stockWatcherActivity.addStock(symbol);
 //                addNewRow(newStock);
