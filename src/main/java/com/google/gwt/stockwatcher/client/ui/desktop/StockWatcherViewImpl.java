@@ -95,7 +95,7 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         });
         // refresh is needed for back button
         refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
-
+        refreshBoughtStocksFlexTable(stockWatcherActivity.getBoughtStocks());
     }
 
 /*
@@ -235,6 +235,19 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
         }
         for(Stock stock: stocks){
             addNewRow(stock);
+        }
+    }
+
+    private void refreshBoughtStocksFlexTable(List<Stock> stocks) {
+        int numRows = boughtStocksFlexTable.getRowCount();
+        for (int i = 1; i < numRows; i++) {
+            boughtStocksFlexTable.removeRow(1);
+        }
+        for(Stock stock: stocks){
+            int row = boughtStocksFlexTable.getRowCount();
+            boughtStocksFlexTable.setText(row, 0, stock.getSymbol());
+            boughtStocksFlexTable.setText(row, 1, NumberFormat.getFormat("#,##0.00").format(stock.getPrice()));
+            boughtStocksFlexTable.setText(row, 2, stock.getCount() + "");
         }
     }
 

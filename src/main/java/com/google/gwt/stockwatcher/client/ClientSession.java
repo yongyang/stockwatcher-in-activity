@@ -81,4 +81,8 @@ public class ClientSession implements Serializable {
         return null;
     }
 
+    public void buyStock(Stock stock) {
+        boughtStocks.add(stock);
+    }
+
 }

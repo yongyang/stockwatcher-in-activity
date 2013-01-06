@@ -55,8 +55,11 @@ public class BuyStockActivity extends CompositeActivity<BuyStockPlace> {
     }
 
 
-    public void buyStock(String symbol) {
-
+    public void buyStock(String symbol, int count) {
+        Stock stock = getClientFactory().getClientSession().getAvailableStock(symbol);
+        stock = Stock.cloneStock(stock);
+        stock.setCount(count);
+        getClientFactory().getClientSession().buyStock(stock);
     }
 
     public List<Stock> getAllAvailableStocks() {

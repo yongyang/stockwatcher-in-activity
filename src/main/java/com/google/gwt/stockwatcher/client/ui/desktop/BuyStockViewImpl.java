@@ -9,6 +9,7 @@ import com.google.gwt.stockwatcher.client.ui.BuyStockView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -72,6 +73,22 @@ public class BuyStockViewImpl extends Composite implements BuyStockView {
         cancelButton.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
+                buyStockActivity.toPlace(new StockWatcherPlace());
+            }
+        });
+
+        saveButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                int count = 1;
+                try {
+                    count = Integer.parseInt(amount.getText().trim());
+                }
+                catch (Exception e) {
+                    Window.alert("amount should be number.");
+                    return;
+                }
+                buyStockActivity.buyStock(symbol.getText(), count);
                 buyStockActivity.toPlace(new StockWatcherPlace());
             }
         });

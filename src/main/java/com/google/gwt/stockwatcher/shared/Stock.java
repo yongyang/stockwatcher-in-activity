@@ -22,6 +22,8 @@ public class Stock implements Serializable{
 
     private double change;
 
+    private int count;
+
     public Stock() {
 
     }
@@ -46,9 +48,19 @@ public class Stock implements Serializable{
         return 100.0 * this.change / this.price;
     }
 
-    public Stock fromString(String placeToken) {
-        //TODO:
-        return null;
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public static Stock cloneStock(Stock stock) {
+        Stock cloneStock = new Stock();
+        cloneStock.setSymbol(stock.getSymbol());
+        cloneStock.price = stock.getPrice();
+        return cloneStock;
     }
 
 
