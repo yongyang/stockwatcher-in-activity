@@ -2,7 +2,6 @@ package com.google.gwt.stockwatcher.client.place;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
-import com.google.gwt.stockwatcher.shared.Stock;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,23 +12,14 @@ import com.google.gwt.stockwatcher.shared.Stock;
  */
 public class BuyStockPlace extends Place {
 
-    private String token;
-    private Stock stock;
+    private String symbol;
 
-    public BuyStockPlace(String token) {
-        this.token = token;
+    public BuyStockPlace(String symbol) {
+        this.symbol = symbol;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public Stock getStock() {
-        return stock;
-    }
-
-    public void setStock(Stock stock) {
-        this.stock = stock;
+    public String getSymbol() {
+        return symbol;
     }
 
     public static class Tokenizer implements PlaceTokenizer<BuyStockPlace> {
@@ -41,7 +31,7 @@ public class BuyStockPlace extends Place {
 
         @Override
         public String getToken(BuyStockPlace place) {
-            return place.getToken();
+            return place.getSymbol();
         }
     }
 }

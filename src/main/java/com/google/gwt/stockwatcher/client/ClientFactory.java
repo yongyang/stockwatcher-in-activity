@@ -5,8 +5,10 @@ import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.stockwatcher.client.activity.BuyStockActivity;
 import com.google.gwt.stockwatcher.client.activity.StatusActivity;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
+import com.google.gwt.stockwatcher.client.place.BuyStockPlace;
 import com.google.gwt.stockwatcher.client.place.StockWatcherPlace;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -49,9 +51,15 @@ public abstract class ClientFactory implements ActivityMapper {
         if(place instanceof StockWatcherPlace) {
             return new StockWatcherActivity(ClientFactory.this, (StockWatcherPlace)place);
         }
+        else if(place instanceof BuyStockPlace) {
+            return new BuyStockActivity(this, (BuyStockPlace)place);
+        }
         else {
+            // black page
             return null;
         }
+        // this doesn't skip to next page
+//        throw new RuntimeException("No corresponding Activity for Place: " + place);
     }
 
     public ClientSession getClientSession() {

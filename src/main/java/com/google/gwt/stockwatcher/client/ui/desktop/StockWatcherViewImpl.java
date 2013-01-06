@@ -7,6 +7,7 @@ import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.stockwatcher.client.activity.PlaceActivity;
 import com.google.gwt.stockwatcher.client.activity.StockWatcherActivity;
+import com.google.gwt.stockwatcher.client.place.BuyStockPlace;
 import com.google.gwt.stockwatcher.client.ui.StockWatcherView;
 import com.google.gwt.stockwatcher.shared.Stock;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -92,6 +93,9 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 }
             }
         });
+        // refresh is needed for back button
+        refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
+
     }
 
 /*
@@ -174,7 +178,6 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
 
         Button removeStockButton = new Button("x");
         removeStockButton.addStyleDependentName("remove");
-        stocksFlexTable.setWidget(row, 3, removeStockButton);
         removeStockButton.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -183,9 +186,17 @@ class StockWatcherViewImpl extends Composite implements StockWatcherView{
                 refreshStocksFlexTable(stockWatcherActivity.getAllAvailableStocks());
             }
         });
+        stocksFlexTable.setWidget(row, 3, removeStockButton);
 
         Button buyButton = new Button("$");
         buyButton.addStyleDependentName("Buy");
+        buyButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                toPlace(new BuyStockPlace(stock.getSymbol()));
+            }
+        });
+
         stocksFlexTable.setWidget(row, 4, buyButton);
 
         this.stockSymbolTextBox.setText("");
