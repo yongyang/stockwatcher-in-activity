@@ -17,7 +17,7 @@ Place:
 Place can handle Sting-nize Object, so the parameter can be transfer to Acticity.
 
 View:
-Responsible for organizing widget, generally by UI binder.
+Responsible for organizing widget, generally by UI binder, and handle events.
 Has reference to Activity, call Activity to process all logic.
 
 For multiple display View, see stockwatcher view and buystock viewes & activities.

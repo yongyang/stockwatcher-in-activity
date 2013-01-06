@@ -34,19 +34,6 @@ public class StockWatcherActivity extends CompositeActivity {
 
         panel.setWidget(stockWatcherView.asWidget());
 
-        // init handlers
-/*
-        stockWatcherView.addClickHandlerOfAddStockButton(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                String stockCode = stockWatcherView.getAddStockValue();
-                Stock stock = new Stock();
-                getClientFactory().getClientSession().addStock(stock);
-                stockWatcherView.onStockAdded(stock);
-            }
-        });
-*/
-
         // add Sub Activities
         logoActivity = new LogoActivity(getClientFactory(), getPlace(), this);
         statusActivity = new StatusActivity(getClientFactory(), getPlace(), this);
@@ -59,8 +46,6 @@ public class StockWatcherActivity extends CompositeActivity {
     @Override
     public String mayStop() {
         super.mayStop();
-        //IMPORTANT!!! setDisplay null to remove handlers from eventBus
-//        getClientFactory().getStatusActivityManager().setDisplay(null);
         return "Please hold on. Activity " + this.getClass().getName() + " is stopping.";
     }
 
@@ -74,8 +59,6 @@ public class StockWatcherActivity extends CompositeActivity {
             throw new ValidationException(violations.iterator().next().getMessage());
         }
 
-        //TODO: validate
-        //TODO: existed check
         getClientFactory().getClientSession().addStock(stock);
         // update status panel
         statusActivity.updateStatus();
