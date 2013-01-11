@@ -3,6 +3,7 @@ package com.google.gwt.stockwatcher.client;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.stockwatcher.client.activity.BuyStockActivity;
@@ -53,10 +54,9 @@ public abstract class ClientFactory implements ActivityMapper {
         else if(place instanceof BuyStockPlace) {
             return new BuyStockActivity(this, (BuyStockPlace)place);
         }
-        else {
             // black page
-            return null;
-        }
+        GWT.log("No such Activity for place: " + place);
+        return null;
         // this doesn't skip to next page
 //        throw new RuntimeException("No corresponding Activity for Place: " + place);
     }
